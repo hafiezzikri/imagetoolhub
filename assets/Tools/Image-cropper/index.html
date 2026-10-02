@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Image Cropper - ImageToolsHub</title>
+
+    <meta
+      name="description"
+      content="Crop your images online for free. Easily crop JPG, PNG, and WebP images."
+    />
+
+    <!-- =========================
+         BOXICONS
+    ========================== -->
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- =========================
+         GLOBAL CSS
+    ========================== -->
+
+    <link rel="stylesheet" href="/Imagetoolshub/style.css" />
+
+    <!-- =========================
+         IMAGE CROPPER CSS
+    ========================== -->
+
+    <link rel="stylesheet" href="/Tools/Image-cropper/style.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+     HEADER
+========================== -->
+
+    <header class="navbar">
+      <div class="container nav-container">
+        <!-- LOGO -->
+
+        <a href="/Imagetoolshub/index.html" class="logo">
+          Image<span>Tools</span>Hub
+        </a>
+
+        <!-- NAVIGATION -->
+        <!-- NAVIGATION -->
+
+        <nav class="nav-menu" id="navMenu">
+          <a href="../../index.html" class="nav-link"> Home </a>
+
+          <a href="../../index.html#tools" class="nav-link"> Tools </a>
+
+          <a href="../../index.html#about" class="nav-link"> About </a>
+        </nav>
+
+        <!-- HEADER ACTIONS -->
+
+        <div class="nav-actions">
+          <!-- THEME BUTTON -->
+
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark mode"
+          >
+            <i class="bx bx-moon"></i>
+          </button>
+
+          <!-- MOBILE MENU -->
+
+          <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            <i class="bx bx-menu"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+      <!-- =========================
+             TOOL HERO
+        ========================== -->
+
+      <section class="tool-hero">
+        <div class="container">
+          <!-- BREADCRUMB -->
+
+          <div class="breadcrumb">
+            <a href="/Imagetoolshub/index.html"> Home </a>
+
+            <i class="bx bx-chevron-right"></i>
+
+            <span> Image Cropper </span>
+          </div>
+
+          <!-- TOOL HEADER -->
+
+          <div class="tool-header">
+            <div class="tool-page-icon">
+              <i class="bx bx-crop"></i>
+            </div>
+
+            <h1>Image Cropper</h1>
+
+            <p>
+              Crop your images online for free. Select the area you want to keep
+              and download your cropped image instantly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+             CROPPER TOOL
+        ========================== -->
+
+      <section class="cropper-section">
+        <div class="container">
+          <div class="cropper-wrapper">
+            <!-- =========================
+                         UPLOAD AREA
+                    ========================== -->
+
+            <div class="upload-area" id="uploadArea">
+              <div class="upload-icon">
+                <i class="bx bx-cloud-upload"></i>
+              </div>
+
+              <h2>Upload Your Image</h2>
+
+              <p>
+                Drag & drop your image here or choose an image from your device.
+              </p>
+
+              <label for="imageInput" class="upload-button">
+                <i class="bx bx-upload"></i>
+
+                Choose Image
+              </label>
+
+              <input
+                type="file"
+                id="imageInput"
+                accept="image/jpeg,image/png,image/webp"
+                hidden
+              />
+
+              <span class="upload-info">
+                JPG, PNG, or WebP • Maximum file size 10MB
+              </span>
+            </div>
+
+            <!-- =========================
+                         CROPPER EDITOR
+                    ========================== -->
+
+            <div class="cropper-editor" id="cropperEditor" hidden>
+              <!-- =========================
+                             IMAGE PREVIEW
+                        ========================== -->
+
+              <div class="cropper-card">
+                <div class="cropper-card-header">
+                  <div>
+                    <h3>Crop Your Image</h3>
+
+                    <span>
+                      Drag the crop area to select the part you want to keep.
+                    </span>
+                  </div>
+
+                  <div class="original-size">
+                    <span> Original Size </span>
+
+                    <strong id="originalDimensions"> 0 × 0 px </strong>
+                  </div>
+                </div>
+
+                <!-- CROPPER CANVAS -->
+
+                <div class="cropper-container" id="cropperContainer">
+                  <img id="cropperImage" src="" alt="Image to crop" />
+
+                  <div class="crop-selection" id="cropSelection">
+                    <div class="crop-handle handle-nw"></div>
+
+                    <div class="crop-handle handle-ne"></div>
+
+                    <div class="crop-handle handle-sw"></div>
+
+                    <div class="crop-handle handle-se"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =========================
+                             CROP SETTINGS
+                        ========================== -->
+
+              <div class="crop-settings">
+                <div class="settings-title">
+                  <div>
+                    <h3>Crop Settings</h3>
+
+                    <p>Choose your crop dimensions and aspect ratio.</p>
+                  </div>
+                </div>
+
+                <!-- ASPECT RATIO -->
+
+                <div class="setting-group">
+                  <label for="aspectRatioSelect"> Aspect Ratio </label>
+
+                  <select id="aspectRatioSelect">
+                    <option value="free">Free</option>
+
+                    <option value="1:1">1:1 — Square</option>
+
+                    <option value="4:3">4:3</option>
+
+                    <option value="3:4">3:4</option>
+
+                    <option value="16:9">16:9</option>
+
+                    <option value="9:16">9:16</option>
+                  </select>
+                </div>
+
+                <!-- CROP DIMENSIONS -->
+
+                <div class="crop-dimensions">
+                  <div class="input-group">
+                    <label for="cropWidth"> Width </label>
+
+                    <div class="input-with-unit">
+                      <input type="number" id="cropWidth" min="1" value="0" />
+
+                      <span> px </span>
+                    </div>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="cropHeight"> Height </label>
+
+                    <div class="input-with-unit">
+                      <input type="number" id="cropHeight" min="1" value="0" />
+
+                      <span> px </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CROP ACTIONS -->
+
+                <div class="tool-actions">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="resetButton"
+                  >
+                    <i class="bx bx-reset"></i>
+
+                    Start Over
+                  </button>
+
+                  <button type="button" class="btn btn-primary" id="cropButton">
+                    <i class="bx bx-crop"></i>
+
+                    Crop Image
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- =========================
+                         RESULT
+                    ========================== -->
+
+            <div class="result-card" id="resultCard" hidden>
+              <div class="result-header">
+                <div>
+                  <h3>Cropped Image</h3>
+
+                  <span> Your cropped image is ready to download. </span>
+                </div>
+
+                <div class="result-size">
+                  <span> Crop Size </span>
+
+                  <strong id="resultDimensions"> 0 × 0 px </strong>
+                </div>
+              </div>
+
+              <!-- RESULT PREVIEW -->
+
+              <div class="result-preview">
+                <img id="resultPreview" src="" alt="Cropped image preview" />
+              </div>
+
+              <!-- RESULT ACTIONS -->
+
+              <div class="result-actions">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  id="cropAgainButton"
+                >
+                  <i class="bx bx-refresh"></i>
+
+                  Crop Again
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="downloadButton"
+                  disabled
+                >
+                  <i class="bx bx-download"></i>
+
+                  Download Image
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+             INFORMATION
+        ========================== -->
+
+      <section class="tool-info-section">
+        <div class="container">
+          <div class="info-content">
+            <h2>How to Crop an Image?</h2>
+
+            <p>
+              Crop your images quickly and easily with our free online image
+              cropper. No software installation required.
+            </p>
+
+            <div class="steps-grid">
+              <!-- STEP 1 -->
+
+              <div class="step-card">
+                <div class="step-number">STEP 01</div>
+
+                <h3>Upload Your Image</h3>
+
+                <p>
+                  Select an image from your device or drag and drop it into the
+                  upload area.
+                </p>
+              </div>
+
+              <!-- STEP 2 -->
+
+              <div class="step-card">
+                <div class="step-number">STEP 02</div>
+
+                <h3>Select Crop Area</h3>
+
+                <p>
+                  Adjust the crop selection and choose your preferred aspect
+                  ratio.
+                </p>
+              </div>
+
+              <!-- STEP 3 -->
+
+              <div class="step-card">
+                <div class="step-number">STEP 03</div>
+
+                <h3>Download Your Image</h3>
+
+                <p>
+                  Click crop and download your newly cropped image instantly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <!-- =========================
+     FOOTER
+========================== -->
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <!-- FOOTER BRAND -->
+
+        <div class="footer-brand">
+          <a href="/Imagetoolshub/index.html" class="logo">
+            Image<span>Tools</span>Hub
+          </a>
+
+          <p>Simple image tools for everyone.</p>
+        </div>
+
+        <!-- FOOTER LINKS -->
+
+        <div class="footer-links">
+          <a href="/Imagetoolshub/index.html"> Home </a>
+
+          <a href="/Imagetoolshub/index.html#tools"> Tools </a>
+
+          <a href="/Imagetoolshub/index.html#about"> About </a>
+
+          <a href="#"> Privacy Policy </a>
+
+          <a href="#"> Terms </a>
+        </div>
+      </div>
+
+      <!-- FOOTER BOTTOM -->
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>© 2026 ImageToolsHub. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =========================
+         GLOBAL JAVASCRIPT
+    ========================== -->
+
+    <script src="/Imagetoolshub/script.js"></script>
+
+    <!-- =========================
+         IMAGE CROPPER JAVASCRIPT
+    ========================== -->
+
+    <script src="/Tools/Image-cropper/script.js"></script>
+  </body>
+</html>
+>

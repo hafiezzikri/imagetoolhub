@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- =========================
+         BASIC META
+    ========================== -->
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Compress your images online for free. Reduce image file size while maintaining good quality."
+    />
+
+    <title>Image Compressor - ImageToolsHub</title>
+
+    <!-- =========================
+         BOXICONS
+    ========================== -->
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- =========================
+         GLOBAL CSS
+    ========================== -->
+
+    <link rel="stylesheet" href="/Imagetoolshub/style.css" />
+
+    <!-- =========================
+         TOOL CSS
+    ========================== -->
+
+    <link rel="stylesheet" href="/Tools/Image-compressor/style.css" />
+  </head>
+
+  <body>
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+      <div class="container nav-container">
+        <!-- LOGO -->
+
+        <a href="/Imagetoolshub/index.html#home" class="logo">
+          Image<span>Tools</span>Hub
+        </a>
+
+        <!-- NAVIGATION -->
+
+        <nav class="nav-menu" id="navMenu">
+          <a href="/Imagetoolshub/index.html" class="nav-link"> Home </a>
+
+          <a href="/Imagetoolshub/index.html#tools" class="nav-link active">
+            Tools
+          </a>
+
+          <a href="/Imagetoolshub/index.html#about" class="nav-link"> About </a>
+        </nav>
+
+        <!-- NAV ACTIONS -->
+
+        <div class="nav-actions">
+          <!-- THEME BUTTON -->
+
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark mode"
+          >
+            <i class="bx bx-moon"></i>
+          </button>
+
+          <!-- MOBILE MENU -->
+
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+          >
+            <i class="bx bx-menu"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+      <!-- =========================
+             TOOL HERO
+        ========================== -->
+
+      <section class="tool-hero">
+        <div class="container">
+          <!-- BREADCRUMB -->
+
+          <div class="breadcrumb">
+            <a href="/Imagetoolshub/index.html#about"> Home </a>
+
+            <i class="bx bx-chevron-right"></i>
+
+            <span> Image Compressor </span>
+          </div>
+
+          <!-- TOOL HEADER -->
+
+          <div class="tool-header">
+            <div class="tool-page-icon">
+              <i class="bx bx-image-alt"></i>
+            </div>
+
+            <h1>Image Compressor</h1>
+
+            <p>
+              Compress your images online for free. Reduce file size while
+              keeping the best possible image quality.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+             COMPRESSOR TOOL
+        ========================== -->
+
+      <section class="compressor-section">
+        <div class="container">
+          <div class="compressor-wrapper">
+            <!-- =========================
+                         UPLOAD AREA
+                    ========================== -->
+
+            <div class="upload-area" id="uploadArea">
+              <div class="upload-icon">
+                <i class="bx bx-cloud-upload"></i>
+              </div>
+
+              <h2>Upload Your Image</h2>
+
+              <p>Drag & drop your image here or click the button below.</p>
+
+              <label for="imageInput" class="upload-button">
+                <i class="bx bx-upload"></i>
+
+                Choose Image
+              </label>
+
+              <input
+                type="file"
+                id="imageInput"
+                accept="image/jpeg,image/png,image/webp"
+                hidden
+              />
+
+              <span class="upload-info"> JPG, PNG or WebP · Maximum 10MB </span>
+            </div>
+
+            <!-- =========================
+                         EDITOR
+                    ========================== -->
+
+            <div class="compressor-editor" id="compressorEditor" hidden>
+              <!-- =====================
+                             IMAGE PREVIEW
+                        ====================== -->
+
+              <div class="preview-grid">
+                <!-- ORIGINAL -->
+
+                <div class="preview-card">
+                  <div class="preview-header">
+                    <h3>Original Image</h3>
+                  </div>
+
+                  <div class="image-preview">
+                    <img
+                      id="originalPreview"
+                      src=""
+                      alt="Original image preview"
+                    />
+                  </div>
+
+                  <div class="image-info">
+                    <span> Original Size </span>
+
+                    <strong id="originalSize"> 0 KB </strong>
+                  </div>
+                </div>
+
+                <!-- COMPRESSED -->
+
+                <div class="preview-card">
+                  <div class="preview-header">
+                    <h3>Compressed Image</h3>
+                  </div>
+
+                  <div class="image-preview">
+                    <img
+                      id="compressedPreview"
+                      src=""
+                      alt="Compressed image preview"
+                    />
+                  </div>
+
+                  <div class="image-info">
+                    <span> Compressed Size </span>
+
+                    <strong id="compressedSize"> 0 KB </strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =========================
+     COMPRESSION SETTINGS
+========================== -->
+
+              <div class="compression-settings">
+                <div class="settings-header">
+                  <div>
+                    <h3>Compression Settings</h3>
+
+                    <p>
+                      Adjust image quality and choose your preferred output
+                      format.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- QUALITY -->
+
+                <div class="setting-group">
+                  <div class="setting-label">
+                    <label for="qualitySlider"> Image Quality </label>
+
+                    <strong id="qualityValue"> 80% </strong>
+                  </div>
+
+                  <input
+                    type="range"
+                    id="qualitySlider"
+                    min="10"
+                    max="100"
+                    value="80"
+                    step="5"
+                  />
+
+                  <div class="range-labels">
+                    <span> Smaller File </span>
+
+                    <span> Better Quality </span>
+                  </div>
+                </div>
+
+                <!-- OUTPUT FORMAT -->
+
+                <div class="setting-group">
+                  <div class="setting-label">
+                    <label for="formatSelect"> Output Format </label>
+                  </div>
+
+                  <div class="format-options">
+                    <label class="format-option">
+                      <input
+                        type="radio"
+                        name="outputFormat"
+                        value="image/jpeg"
+                        checked
+                      />
+
+                      <span>
+                        <i class="bx bx-image"></i>
+
+                        JPG
+                      </span>
+                    </label>
+
+                    <label class="format-option">
+                      <input
+                        type="radio"
+                        name="outputFormat"
+                        value="image/png"
+                      />
+
+                      <span>
+                        <i class="bx bx-image"></i>
+
+                        PNG
+                      </span>
+                    </label>
+
+                    <label class="format-option">
+                      <input
+                        type="radio"
+                        name="outputFormat"
+                        value="image/webp"
+                      />
+
+                      <span>
+                        <i class="bx bx-image"></i>
+
+                        WebP
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- =========================
+                             COMPRESSION RESULT
+                        ========================== -->
+
+              <div class="compression-result" id="compressionResult" hidden>
+                <div class="result-icon">
+                  <i class="bx bx-check"></i>
+                </div>
+
+                <div class="result-info">
+                  <span> You saved </span>
+
+                  <strong id="savedPercentage"> 0% </strong>
+                </div>
+              </div>
+
+              <!-- =========================
+     ACTION BUTTONS
+========================== -->
+
+              <div class="tool-actions">
+                <button class="btn btn-secondary" id="resetButton">
+                  <i class="bx bx-reset"></i>
+
+                  Start Over
+                </button>
+
+                <button class="btn btn-primary" id="compressButton">
+                  <i class="bx bx-compress"></i>
+
+                  Compress Image
+                </button>
+
+                <button class="btn btn-primary" id="downloadButton" disabled>
+                  <i class="bx bx-download"></i>
+
+                  Download Image
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+             INFORMATION SECTION
+        ========================== -->
+
+      <section class="tool-info-section">
+        <div class="container">
+          <div class="info-content">
+            <h2>How to Compress an Image?</h2>
+
+            <p>
+              Compressing an image helps reduce its file size, making it easier
+              to upload, share and store.
+            </p>
+
+            <div class="steps-grid">
+              <!-- STEP 1 -->
+
+              <div class="step-card">
+                <div class="step-number">01</div>
+
+                <h3>Upload Your Image</h3>
+
+                <p>Select a JPG, PNG or WebP image from your device.</p>
+              </div>
+
+              <!-- STEP 2 -->
+
+              <div class="step-card">
+                <div class="step-number">02</div>
+
+                <h3>Adjust Quality</h3>
+
+                <p>
+                  Use the quality slider to find the right balance between
+                  quality and file size.
+                </p>
+              </div>
+
+              <!-- STEP 3 -->
+
+              <div class="step-card">
+                <div class="step-number">03</div>
+
+                <h3>Download</h3>
+
+                <p>Download your compressed image and use it anywhere.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-brand">
+          <a href="/Imagetoolshub/index.html#home" class="logo">
+            Image<span>Tools</span>Hub
+          </a>
+
+          <p>Simple image tools for everyone.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="/Imagetoolshub/index.html#home"> Home </a>
+
+          <a href="/Imagetoolshub/index.html#tools"> Tools </a>
+
+          <a href="/Imagetoolshub/index.html#about"> About </a>
+
+          <a href="#"> Privacy Policy </a>
+
+          <a href="#"> Terms </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <p>© 2026 ImageToolsHub. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="/Imagetoolshub/script.js"></script>
+
+    <script src="/Tools/Image-compressor/script.js"></script>
+  </body>
+</html>
