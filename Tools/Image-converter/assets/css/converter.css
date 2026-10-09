@@ -44,6 +44,9 @@
 .breadcrumb i {
   font-size: 18px;
 }
+/* ========================================
+   TOOL HEADER
+======================================== */
 
 .tool-header {
   max-width: 700px;
@@ -93,8 +96,6 @@
   color: var(--text-secondary);
 
   font-size: 15px;
-
-  line-height: 1.7;
 }
 
 /* ========================================
