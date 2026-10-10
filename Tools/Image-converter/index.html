@@ -35,32 +35,30 @@
 
   <body>
     <!-- =========================
-         HEADER
+         NAVBAR
     ========================== -->
 
     <header class="navbar">
       <div class="container nav-container">
         <!-- LOGO -->
 
-        <a href="../../index.html" class="logo">
-          <i class="bx bx-image"></i>
-
-          <span>ImageToolsHub</span>
+        <a href="../../index.html#home" class="logo">
+          Image<span>Tools</span>Hub
         </a>
 
         <!-- NAVIGATION -->
 
-        <nav class="nav-menu">
+        <nav class="nav-menu" id="navMenu">
           <a href="../../index.html" class="nav-link"> Home </a>
 
-          <a href="../../index.html#tools" class="nav-link"> Tools </a>
+          <a href="../../index.html#tools" class="nav-link active"> Tools </a>
 
           <a href="../../index.html#about" class="nav-link"> About </a>
 
-          <a href="../../index.html#faq" class="nav-link"> FAQ </a>
+          <a href="../../index.html#about#faq"> FAQ </a>
         </nav>
 
-        <!-- HEADER ACTIONS -->
+        <!-- NAV ACTIONS -->
 
         <div class="nav-actions">
           <!-- THEME BUTTON -->
@@ -75,7 +73,11 @@
 
           <!-- MOBILE MENU -->
 
-          <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+          >
             <i class="bx bx-menu"></i>
           </button>
         </div>
