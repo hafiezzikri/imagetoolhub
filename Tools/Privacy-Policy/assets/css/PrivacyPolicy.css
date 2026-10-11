@@ -1,4 +1,3 @@
-
 /* ========================================
    PRIVACY POLICY PAGE
 ======================================== */
@@ -126,7 +125,9 @@
   font-size: 13px;
   line-height: 1.5;
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .privacy-toc a:hover,
@@ -171,7 +172,7 @@
   padding: 0 0 32px;
   margin: 0 0 34px;
   border-bottom: 1px solid var(--border-color, #e2e8f0);
-  scroll-margin-top: 28px;
+  scroll-margin-top: 90px;
 }
 
 .policy-section h2 {
@@ -211,6 +212,17 @@
 .policy-section a {
   color: var(--primary-color, #4361ee);
   overflow-wrap: anywhere;
+}
+
+.privacy-toc a.active {
+  background: var(--primary-light, #eef2ff);
+  color: var(--primary-color, #4361ee);
+  font-weight: 600;
+}
+
+body.dark-mode .privacy-toc a.active {
+  background: rgba(67, 97, 238, 0.15);
+  color: var(--primary-color, #4361ee);
 }
 
 .privacy-contact-card {
@@ -279,7 +291,9 @@
   font: inherit;
   font-size: 14px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .privacy-top-button:hover {
@@ -301,6 +315,7 @@
 
   .privacy-sidebar {
     position: static;
+    top: 90px;
   }
 
   .privacy-toc nav {
